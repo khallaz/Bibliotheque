@@ -1,0 +1,40 @@
+[
+    {
+        "id": 1,
+        "client": {
+            "nom": "Akiola",
+            "prenom": "Ade",
+            "adresse": "Sherbrooke",
+            "numeroClient": 1
+        },
+        "documentReserve": {
+            "type": "CD",
+            "id": "1B",
+            "titre": "Abbey Road",
+            "auteur": "The Beatles",
+            "anneeDePublication": 1969,
+            "nombreExemplaires" : 59,
+            "genre": "Rock"
+        },
+        "dateReservation": "2023-04-01"
+    },
+    {
+        "id": 2,
+        "client": {
+            "nom": "Mbengue",
+            "prenom": "Abdoulaye",
+            "adresse": "Sherbrooke",
+            "numeroClient": 2
+        },
+        "documentReserve": {
+            "type": "Livre",
+            "id": "1A",
+            "titre": "Une si longue lettre",
+            "auteur": "Mariama Ba",
+            "anneeDePublication": 1980,
+            "nombreExemplaires" : 100,
+            "isbn": "1234567890"
+        },
+        "dateReservation": "2023-04-02"
+    }
+]

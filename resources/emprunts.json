@@ -1,0 +1,38 @@
+[
+    {
+        "client": {
+            "nom": "Akiola",
+            "prenom": "Ade",
+            "adresse": "Sherbrooke",
+            "numeroClient": 1
+        },
+        "documentEmprunte": {
+            "type": "Livre",
+            "id": "1A",
+            "titre": "Une si longue lettre",
+            "auteur": "Mariama Ba",
+            "anneeDePublication": 1980,
+            "nombreExemplaires": 100
+        },
+        "dateEmprunt": "2023-03-01",
+        "dateRetour": "2023-03-15"
+    },
+    {
+        "client": {
+            "nom": "Mbengue",
+            "prenom": "Abdoulaye",
+            "adresse": "Sherbrooke",
+            "numeroClient": 2
+        },
+        "documentEmprunte": {
+            "type": "CD",
+            "id": "1B",
+            "titre": "Abbey Road",
+            "auteur": "The Beatles",
+            "anneeDePublication": 1969,
+            "nombreExemplaires": 59
+        },
+        "dateEmprunt": "2023-03-20",
+        "dateRetour": "2023-04-03"
+    }
+]

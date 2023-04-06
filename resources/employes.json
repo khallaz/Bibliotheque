@@ -1,0 +1,14 @@
+[
+    {
+        "nom": "Akiola",
+        "prenom": "Ade",
+        "adresse": "Sherbrooke",
+        "numeroEmploye": 1
+    },
+    {
+        "nom": "Mbengue",
+        "prenom": "Abdoulaye",
+        "adresse": "Sherbrooke",
+        "numeroEmploye": 2
+    }
+]
