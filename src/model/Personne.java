@@ -35,4 +35,13 @@ public class Personne {
     public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
+
+    @Override
+    public String toString() {
+        return "Nom: " + nom + ", Prenom: " + prenom + ", Adresse: " + adresse;
+    }
+
+    public String getDisplayName() {
+        return  prenom + " " + nom;
+    }
 }

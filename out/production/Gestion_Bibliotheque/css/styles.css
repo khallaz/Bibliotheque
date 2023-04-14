@@ -1,0 +1,43 @@
+.root {
+    -fx-font-family: "Arial";
+}
+
+.button {
+    -fx-background-color: #2a9df4;
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #1e7ac6;
+}
+
+.text {
+    -fx-font-size: 20px;
+    -fx-fill: #333;
+}
+
+.image-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10, 0, 0, 5);
+}
+
+.heading {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-fill: #2a9df4;
+    }
+
+    .clickable-text {
+         color: white;
+        -fx-fill: #ffffff; /* Couleur du texte */
+        -fx-font-size: 30px; /* Taille de la police */
+        -fx-font-weight: bold; /* Graisse de la police */
+        -fx-cursor: hand; /* Change le curseur en main lors du survol */
+    }
+
+    .clickable-text:hover {
+        -fx-underline: true; /* Souligne le texte lors du survol */
+    }
+
+}

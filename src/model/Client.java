@@ -12,6 +12,12 @@ public class Client extends Personne implements Observateur {
         return numeroClient;
     }
 
+    public String getDisplayName() {
+        return getNumeroClient()+ " -     " + super.getDisplayName();
+    }
+
+
+
     public void setNumeroClient(int numeroClient) {
         this.numeroClient = numeroClient;
     }
@@ -19,6 +25,11 @@ public class Client extends Personne implements Observateur {
     @Override
     public void notifier(Document document) {
         System.out.println("Cher " + getNom() + ", le document " + document.getTitre() + " est maintenant disponible.");
+    }
+
+    @Override
+    public String toString() {
+        return "Client [" + super.toString() + ", Numero Client: " + numeroClient + "]";
     }
 
 }

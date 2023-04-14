@@ -13,7 +13,6 @@ public class CDConverter implements DataConverter<Document> {
         CD cd = (CD) document;
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("type", "model.CD");
-        jsonObject.put("id", cd.getId());
         jsonObject.put("titre", cd.getTitre());
         jsonObject.put("auteur", cd.getAuteur());
         jsonObject.put("anneeDePublication", cd.getAnneeDePublication());
@@ -25,14 +24,13 @@ public class CDConverter implements DataConverter<Document> {
     @Override
     public CD fromJson(JSONObject json) {
         String type= (String) json.get("type");
-        String id= (String) json.get("id");
         String titre = (String) json.get("titre");
         String auteur = (String) json.get("auteur");
         int anneeDePublication = ((Number) json.get("anneeDePublication")).intValue();
         String genre = (String) json.get("genre");
         int nombreExemplaires = ((Number) json.get("nombreExemplaires")).intValue();
 
-        return new CD(type, id, titre, auteur, anneeDePublication, nombreExemplaires, genre);
+        return new CD(type,  titre, auteur, anneeDePublication, nombreExemplaires, genre);
 
     }
 }

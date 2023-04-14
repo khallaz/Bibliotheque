@@ -13,7 +13,6 @@ public class LivreConverter implements DataConverter<Document> {
         Livre livre = (Livre) document;
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("type", "model.Livre");
-        jsonObject.put("id", livre.getId());
         jsonObject.put("titre", livre.getTitre());
         jsonObject.put("auteur", livre.getAuteur());
         jsonObject.put("anneeDePublication", livre.getAnneeDePublication());
@@ -25,13 +24,12 @@ public class LivreConverter implements DataConverter<Document> {
     @Override
     public Livre fromJson(JSONObject json) {
         String type = (String) json.get("type");
-        String id = (String) json.get("id");
         String titre = (String) json.get("titre");
         String auteur = (String) json.get("auteur");
         int anneeDePublication = ((Number) json.get("anneeDePublication")).intValue();
         String isbn = (String) json.get("isbn");
         int nombreExemplaires = ((Number) json.get("nombreExemplaires")).intValue();
 
-        return new Livre(type, id, titre, auteur, anneeDePublication, nombreExemplaires, isbn);
+        return new Livre(type, titre, auteur, anneeDePublication, nombreExemplaires, isbn);
     }
 }

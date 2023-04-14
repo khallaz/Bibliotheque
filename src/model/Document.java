@@ -1,5 +1,7 @@
 package model;
 
+import util.DocumentIdGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,12 +13,13 @@ public abstract class Document {
     private String auteur;
     private int anneeDePublication;
     private int nombreExemplaires;
+    private boolean disponible;
 
     private List<Observateur> observateurs;
 
-    public Document(String type, String id, String titre, String auteur, int anneeDePublication, int nombreExemplaires) {
+    public Document(String type, String titre, String auteur, int anneeDePublication, int nombreExemplaires) {
         this.type = type;
-        this.id = id;
+        this.id = DocumentIdGenerator.generateDocumentId();
         this.titre = titre;
         this.auteur = auteur;
         this.anneeDePublication = anneeDePublication;
@@ -27,19 +30,12 @@ public abstract class Document {
     public String getType() {
         return type;
     }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getId() {
         return id;
     }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setType(String type) {
+        this.type = type;
     }
-
     public String getTitre() {
         return titre;
     }
@@ -72,17 +68,17 @@ public abstract class Document {
         this.nombreExemplaires = nombreExemplaires;
     }
 
-    public void ajouterObservateur(Observateur observateur) {
-        observateurs.add(observateur);
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 
-    public void supprimerObservateur(Observateur observateur) {
-        observateurs.remove(observateur);
+    public boolean isDisponible() {
+        return disponible;
     }
 
-    public void notifierObservateurs() {
-        for (Observateur observateur : observateurs) {
-            observateur.notifier(this);
-        }
+
+    @Override
+    public String toString() {
+        return "Document [Type: " + type + ", ID: " + id + ", Titre: " + titre + ", Auteur: " + auteur + ", Année de publication: " + anneeDePublication + "]";
     }
 }

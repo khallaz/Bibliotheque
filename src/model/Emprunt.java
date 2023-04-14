@@ -11,12 +11,17 @@ public class Emprunt {
     private Document documentEmprunte;
     private LocalDate dateEmprunt;
     private LocalDate dateRetour;
+    public static final int DUREE_EMPRUNT = 10;
+
 
     public Emprunt(Client client, Document documentEmprunte, LocalDate dateEmprunt) {
         this.client = client;
         this.documentEmprunte = documentEmprunte;
         this.dateEmprunt = dateEmprunt;
+        this.dateRetour = dateEmprunt.plusDays(DUREE_EMPRUNT);
+
     }
+
 
     public Client getClient() {
         return client;
@@ -48,5 +53,10 @@ public class Emprunt {
 
     public void setDateRetour(LocalDate dateRetour) {
         this.dateRetour = dateRetour;
+    }
+
+    @Override
+    public String toString() {
+        return documentEmprunte.getTitre();
     }
 }

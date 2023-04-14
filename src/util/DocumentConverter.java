@@ -13,7 +13,6 @@ public class DocumentConverter implements DataConverter<Document> {
     public JSONObject toJson(Document document) {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("type", document.getType());
-        jsonObject.put("id", document.getId());
         jsonObject.put("titre", document.getTitre());
         jsonObject.put("auteur", document.getAuteur());
         jsonObject.put("anneeDePublication", document.getAnneeDePublication());
@@ -33,7 +32,6 @@ public class DocumentConverter implements DataConverter<Document> {
     @Override
     public Document fromJson(JSONObject jsonObject) {
         String type = (String) jsonObject.get("type");
-        String id = (String) jsonObject.get("id");
         String titre = (String) jsonObject.get("titre");
         String auteur = (String) jsonObject.get("auteur");
         int anneeDePublication = ((Number) jsonObject.get("anneeDePublication")).intValue();
@@ -42,13 +40,13 @@ public class DocumentConverter implements DataConverter<Document> {
         switch (type) {
             case "Livre":
                 String isbn = (String) jsonObject.get("isbn");
-                return new Livre(type, id, titre, auteur, anneeDePublication, nombreExemplaires, isbn);
+                return new Livre(type, titre, auteur, anneeDePublication, nombreExemplaires, isbn);
             case "CD":
                 String genre = (String) jsonObject.get("genre");
-                return new CD(type, id, titre, auteur, anneeDePublication, nombreExemplaires, genre);
+                return new CD(type, titre, auteur, anneeDePublication, nombreExemplaires, genre);
             case "Journal":
                 int numeroEdition = ((Number) jsonObject.get("numeroEdition")).intValue();
-                return new Journal(type, id, titre, auteur, anneeDePublication, nombreExemplaires, numeroEdition);
+                return new Journal(type, titre, auteur, anneeDePublication, nombreExemplaires, numeroEdition);
             default:
                 return null;
         }

@@ -15,5 +15,10 @@ public class Employe extends Personne {
     public void setNumeroEmploye(int numeroEmploye) {
         this.numeroEmploye = numeroEmploye;
     }
+
+    @Override
+    public String toString() {
+        return "Employe [" + super.toString() + ", Numero Employe: " + numeroEmploye + "]";
+    }
 }
 

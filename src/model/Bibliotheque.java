@@ -4,6 +4,7 @@ import util.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Bibliotheque {
 
@@ -23,6 +24,8 @@ public class Bibliotheque {
     private EmployeConverter employeConverter;
     private JsonManager<Document> documentJsonManager;
     private DocumentConverter documentConverter;
+    private List<Observateur> observateurs;
+
 
     public Bibliotheque() {
         documents = new ArrayList<>();
@@ -30,6 +33,7 @@ public class Bibliotheque {
         reservations = new ArrayList<>();
         clients = new ArrayList<>();
         employes = new ArrayList<>();
+        observateurs = new ArrayList<>();
 
         clientJsonManager = new JsonManager<>("resources/clients.json");
         clientConverter = new ClientConverter();
@@ -83,5 +87,77 @@ public class Bibliotheque {
         reservations.add(reservation);
         reservationJsonManager.saveData(reservations, reservationConverter);
     }
+
+
+
+    public List<Client> getClients() {
+        return clients;
+    }
+
+    public List<Document> getDocuments() {
+        return documents;
+    }
+
+    public List<Employe> getEmployes() {
+        return employes;
+    }
+
+    public List<Emprunt> getEmprunts() {
+        return emprunts;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+
+
+    public void ajouterObservateur(Observateur observateur) {
+        observateurs.add(observateur);
+    }
+
+    public void supprimerObservateur(Observateur observateur) {
+        observateurs.remove(observateur);
+    }
+
+    public void notifierObservateurs(Document document) {
+        for (Observateur observateur : observateurs) {
+            observateur.notifier(document);
+        }
+    }
+
+    public void rendreDocumentDisponible(Document document) {
+        // Mettre à jour l'état du document pour qu'il soit disponible
+        document.setDisponible(true);
+
+        // Trouver les réservations pour ce document
+        List<Reservation> reservationsPourCeDocument = reservations.stream()
+                .filter(reservation -> reservation.getDocument().getId().equals(document.getId()))
+                .collect(Collectors.toList());
+
+        // Supprimer les réservations pour ce document
+        for (Reservation reservation : reservationsPourCeDocument) {
+            supprimerReservation(reservation.getDocument().getId());
+            supprimerObservateur(reservation.getClient());
+        }
+
+        // Notifier les clients concernés
+        notifierObservateurs(document);
+    }
+
+    private void supprimerReservation(String documentId) {
+        reservations.removeIf(reservation -> reservation.getDocument().getId().equals(documentId));
+    }
+
+    public Document getDocument(String documentId) {
+        for (Document document : documents) {
+            if (document.getId().equals(documentId)) {
+                return document;
+            }
+        }
+        return null;
+    }
+
+
 
 }

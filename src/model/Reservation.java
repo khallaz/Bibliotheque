@@ -10,6 +10,7 @@ public class Reservation {
     private Client client;
     private Document documentReserve;
     private LocalDate dateReservation;
+    private Document document;
 
     public Reservation(Client client, Document documentReserve, LocalDate dateReservation) {
         this.client = client;
@@ -37,7 +38,13 @@ public class Reservation {
         return dateReservation;
     }
 
-    public void setDateReservation(LocalDate dateReservation) {
-        this.dateReservation = dateReservation;
+    public Document getDocument() {
+        return document;
     }
+
+    public String toString() {
+        return documentReserve.getTitre();
+    }
+
+
 }

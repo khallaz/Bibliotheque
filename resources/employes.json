@@ -1,14 +1,1 @@
-[
-    {
-        "nom": "Akiola",
-        "prenom": "Ade",
-        "adresse": "Sherbrooke",
-        "numeroEmploye": 1
-    },
-    {
-        "nom": "Mbengue",
-        "prenom": "Abdoulaye",
-        "adresse": "Sherbrooke",
-        "numeroEmploye": 2
-    }
-]
+[{"numeroEmploye":1,"adresse":"Sherbrooke","nom":"Akiola","prenom":"Ade"},{"numeroEmploye":2,"adresse":"Sherbrooke","nom":"Mbengue","prenom":"Abdoulaye"},{"numeroEmploye":6454,"adresse":"Dakar","nom":"Latir","prenom":"Kane"}]
