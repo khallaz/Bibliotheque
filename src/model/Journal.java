@@ -1,7 +1,5 @@
 package model;
 
-import model.Document;
-
 public class Journal extends Document {
     private int numeroEdition;
 

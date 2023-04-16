@@ -1,8 +1,5 @@
 package model;
 
-import model.Client;
-import model.Document;
-
 import java.time.LocalDate;
 
 public class Reservation {
