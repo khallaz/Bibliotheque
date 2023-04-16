@@ -1,11 +1,8 @@
 package model;
 
-import model.Client;
-import model.Document;
-
 import java.time.LocalDate;
 
-public class Emprunt {
+public class Emprunt implements IEmprunt{
 
     private Client client;
     private Document documentEmprunte;
@@ -15,13 +12,24 @@ public class Emprunt {
 
 
     public Emprunt(Client client, Document documentEmprunte, LocalDate dateEmprunt) {
-        this.client = client;
-        this.documentEmprunte = documentEmprunte;
-        this.dateEmprunt = dateEmprunt;
-        this.dateRetour = dateEmprunt.plusDays(DUREE_EMPRUNT);
-
+        if (checkEmprunt(documentEmprunte)) {
+            this.client = client;
+            this.documentEmprunte = documentEmprunte;
+            this.dateEmprunt = dateEmprunt;
+            this.dateRetour = dateEmprunt.plusDays(DUREE_EMPRUNT);
+        }
     }
 
+    public Emprunt(Client client, Document documentEmprunte) {
+        if (checkEmprunt(documentEmprunte)) {
+            this.client = client;
+            this.documentEmprunte = documentEmprunte;
+            this.dateEmprunt = LocalDate.now();
+            this.dateRetour = dateEmprunt.plusDays(DUREE_EMPRUNT);
+        }
+    }
+
+    public boolean checkEmprunt(Document documentEmprunte) {return true;}
 
     public Client getClient() {
         return client;
